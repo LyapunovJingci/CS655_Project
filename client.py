@@ -30,7 +30,7 @@ def socket_client():
     while 1:
         # send first picture
         filepath = os.path.join(os.path.dirname(__file__) + '/image/obama.jpg')
-
+        print(filepath)
         if os.path.isfile(filepath):
             size1 = os.path.getsize(filepath)
             print(size_format(size1))
