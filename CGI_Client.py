@@ -10,6 +10,8 @@ import cgi
 import cgitb;
 cgitb.enable()
 form=cgi.FieldStorage()
+fileitem1=form['filename1']
+fileitem2=form['filename2']
 def size_format(size):
     if size < 1000:
         return '%i' % size + 'size'

@@ -13,7 +13,7 @@ Result = 0
 app = Flask(__name__)
 @app.route('/')
 def hello_world():
-    socket_client()
+
     if(Result == 0):
         return ("""\
                 <html>
@@ -117,4 +117,5 @@ def socket_client():
         break
 
 if __name__ == '__main__':
+    socket_client()
     app.run()

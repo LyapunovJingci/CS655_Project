@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function
+        </script>
+        <meta charset="utf-8">
+        <title>CS655 geni project</title>
+        <script language="javascript">
+	     function exec1(command)
+	    {
+	        var ws = new ActiveXObject("WScript.Shell");
+	        ws.run(command);
+	    }
+	    </script>
+
+    </head>
+<body>
+<h1>Image Recognition</h1>
+<p>Upload two pictures, we can tell you is that same person</p>
+<form enctype="multipart/form-data" action="/cgi-enabled/client.py" method="post">
+<p>upload your first picture:<input type="file" name="filename1" /></p>
+    <p>upload second picture:<input type="file" name="filename2" /></p>
+<p><input type="submit" value="upload" /> </p>
+    <input type="button" value="python1" onclick="exec1('python client.py')" />
+    <input type="button" value="python2" onclick="exec1('python')" />
+</form>
+</body>
+</html>
