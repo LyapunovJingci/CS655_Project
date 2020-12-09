@@ -8,6 +8,44 @@ import struct
 import time
 import cgi
 import cgitb;
+from flask import Flask
+Result = 0
+app = Flask(__name__)
+@app.route('/')
+def hello_world():
+    socket_client()
+    if(Result == 0):
+        return ("""\
+                <html>
+                <head>
+                <meta charset="utf-8">
+                <title>CS655 geni project</title>
+                </head>
+                <body>
+                <h1>same people</h1>
+                <a href="/index.html">
+                    <button>try again!</button>
+                </a>
+                </body>
+                </html>
+                """)
+    else:
+        return ("""\
+                <html>
+                <head>
+                <meta charset="utf-8">
+                <title>CS655 geni project</title>
+                </head>
+                <body>
+                <h1>not same people</h1>
+                <a href="/index.html">
+                    <button>try again!</button>
+                </a>
+                </body>
+                </html>
+                """)
+
+
 def size_format(size):
     if size < 1000:
         return '%i' % size + 'size'
@@ -69,35 +107,9 @@ def socket_client():
         result = msg.decode("utf-8")
         print(result)
         if(result == "same people!"):
-            print("""\
-                <html>
-                <head>
-                <meta charset="utf-8">
-                <title>CS655 geni project</title>
-                </head>
-                <body>
-                <h1>Same people</h1>
-                <a href="/index.html">
-                    <button>try again!</button>
-                </a>
-                </body>
-                </html>
-                """)
+            Result = 1
         else:
-            print("""\
-                <html>
-                <head>
-                <meta charset="utf-8">
-                <title>CS655 geni project</title>
-                </head>
-                <body>
-                <h1>not same people</h1>
-                <a href="/index.html">
-                    <button>try again!</button>
-                </a>
-                </body>
-                </html>
-                """)
+            Result = 0
         print('first picture takes:',firstFileTime-linkStart)
         print('second picture takes:', secondFileTime - firstFileTime)
         print('total takes:', secondFileTime - linkStart)
@@ -105,4 +117,4 @@ def socket_client():
         break
 
 if __name__ == '__main__':
-    socket_client()
+    app.run()
