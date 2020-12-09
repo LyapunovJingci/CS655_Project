@@ -56,7 +56,6 @@ def deal_data(conn, addr):
             fp = open(new_filename1, 'wb')
             print("start receiving...")
             while not recvd_size == filesize:
-                print(recvd_size)
                 if filesize - recvd_size > 1024:
                     data = conn.recv(1024)
                     recvd_size += len(data)

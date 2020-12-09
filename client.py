@@ -21,7 +21,7 @@ def size_format(size):
 def socket_client():
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect(('server.geni.ch-geni-net.genirack.nyu.edu',1218))
+        s.connect(('LAPTOP-F9MB7D33',1218))
     except socket.error as msg:
         print(msg)
         sys.exit(1)
