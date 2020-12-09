@@ -24,9 +24,13 @@ def compare_faces(file1, file2):
 
 def socket_service():
     try:
+        HOST = socket.gethostname()
+        print(HOST)
+        PORT = 1218
+        print(PORT)
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        s.bind(('localhost', 23456))
+        s.bind((HOST, PORT))
         s.listen(10)
     except socket.error as msg:
         print(msg)

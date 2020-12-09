@@ -11,6 +11,6 @@ sudo python3.7 -m pip install numpy==1.19.4
 sudo python3.7 -m pip install flask
 sudo mkdir -p /users/geni
 cd /users/geni
-sudu git clone https://github.com/LyapunovJingci/CS655_Project.git
+sudo git clone https://github.com/LyapunovJingci/CS655_Project.git
 cd CS655_Project
 python3.7 client.py
