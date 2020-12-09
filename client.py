@@ -32,6 +32,7 @@ def socket_client():
     while (count<100):
         linkStart = time.time();
         print('Begin %d send!', count)
+        print('Correct: %d', correct)
         # send first picture
         filepath = os.path.join(os.getcwd() + '/image/obama.jpg')
         #print(filepath)
