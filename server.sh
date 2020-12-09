@@ -17,7 +17,7 @@ sudo python3.7 -m pip install dlib -vvv
 sudo python3.7 -m pip install face_recognition
 sudo mkdir -p /users/geni
 cd /users/geni
-sudo git clone https://github.com/LyapunovJingci/CS655_Project.git
+sudo wget https://github.com/LyapunovJingci/CS655_Project/blob/main/server.py
 cd CS655_Project
 python3.7 server.py
 

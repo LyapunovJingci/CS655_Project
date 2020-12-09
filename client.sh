@@ -14,8 +14,10 @@ sudo python3.7 -m pip install opencv-python==4.4.0.46
 sudo python3.7 -m pip install numpy==1.19.4
 sudo python3.7 -m pip install flask
 sudo apt-get install apache2
-sudo mkdir -p /users/geni
-cd /users/geni
-sudo git clone https://github.com/LyapunovJingci/CS655_Project.git
-cd CS655_Project
-python3.7 client.py
+cd /var/www/html
+sudo wget https://github.com/LyapunovJingci/CS655_Project/blob/main/index.html
+sudo mkdir cgi-enabled
+sudo chmod 777 cgi-enabled
+cd cgi-enabled
+sudo wget https://github.com/LyapunovJingci/CS655_Project/blob/main/CGI_Client.py
+sudo chmod 777 CGI_Client.py
