@@ -30,10 +30,11 @@ def socket_client():
 
     while(count < 100):
         linkStart = time.time();
+        print('Begin %d send!',count)
         while 1:
             # send first picture
             filepath = os.path.join(os.getcwd() + '/image/obama.jpg')
-            print(filepath)
+            #print(filepath)
             if os.path.isfile(filepath):
                 size1 = os.path.getsize(filepath)
                 print(size_format(size1))
@@ -41,7 +42,6 @@ def socket_client():
                 fhead = struct.pack('128sq', bytes(os.path.basename(filepath).encode('utf-8')),
                                     os.stat(filepath).st_size)
                 s.send(fhead)
-                # print('client filepath: {0}'.format(filepath))
                 fp = open(filepath, 'rb')
                 while 1:
                     data = fp.read(1024)
@@ -74,7 +74,6 @@ def socket_client():
             fileinfo_size = struct.calcsize('128sq')
             msg = s.recv(fileinfo_size)
             result = msg.decode("utf-8")
-            print(result)
             if (result == "same people!"):
                 print("same people!")
                 correct += 1
@@ -85,10 +84,10 @@ def socket_client():
             print('first picture takes:', firstFileTime - linkStart)
             print('second picture takes:', secondFileTime - firstFileTime)
             print('total takes:', secondFileTime - linkStart)
-            
+
     s.close()
     print('sent:',count)
     print('correct:',correct)
-        
+
 if __name__ == '__main__':
     socket_client()
