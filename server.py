@@ -1,10 +1,26 @@
 # -*- coding=utf-8 -*-
+import cv2
 import socket
 import threading
 import time
 import sys
 import os
 import struct
+import face_recognition as fr
+
+def compare_faces(file1, file2):
+    #fp1 = os.path.join(os.path.dirname(__file__) + file1)
+    #fp2 = os.path.join(os.path.dirname(__file__) + file2)
+    #fp1 = open(file1, 'wb')
+
+	image1 = fr.load_image_file(file1)
+	image2 = fr.load_image_file(file2)
+
+	image1_encoding = fr.face_encodings(image1)[0]
+	image2_encoding = fr.face_encodings(image2)[0]
+
+	results = fr.compare_faces([image1_encoding], image2_encoding)
+	return results[0]
 
 def socket_service():
     try:
@@ -28,14 +44,15 @@ def deal_data(conn, addr):
         fileinfo_size = struct.calcsize('128sl')
         buf = conn.recv(fileinfo_size)
         if buf:
-            filename, filesize = struct.unpack('128sl', buf)
-            fn = filename.strip(str.encode('\00'))
-            new_filename = os.path.join(str.encode('./'), str.encode('new_') + fn)
-            print ('file new name is {0}, filesize if {1}'.format(new_filename, filesize))
+            filename1, filesize = struct.unpack('128sl', buf)
+            fn1 = filename1.strip(str.encode('\00'))
+            new_filename1 = os.path.join(str.encode('./'), str.encode('new_') + fn1)
+            fp1 = str.encode('new_') + fn1
+            print('file new name is {0}, filesize if {1}'.format(new_filename1, filesize))
 
-            recvd_size = 0  # 定义已接收文件的大小
-            fp = open(new_filename, 'wb')
-            print ("start receiving...")
+            recvd_size = 0  # the size of the file has been received
+            fp = open(new_filename1, 'wb')
+            print("start receiving...")
             while not recvd_size == filesize:
                 if filesize - recvd_size > 1024:
                     data = conn.recv(1024)
@@ -45,9 +62,42 @@ def deal_data(conn, addr):
                     recvd_size = filesize
                 fp.write(data)
             fp.close()
-            print ("end receive...")
-        conn.close()
-        break
+            print("end receive...")
+            break
+
+    while 1:
+        fileinfo_size = struct.calcsize('128sl')
+        buf = conn.recv(fileinfo_size)
+        if buf:
+            filename2, filesize = struct.unpack('128sl', buf)
+            fn2 = filename2.strip(str.encode('\00'))
+            new_filename2 = os.path.join(str.encode('./'), str.encode('new_') + fn2)
+            fp2 = str.encode('new_') + fn2
+            print('file new name is {0}, filesize if {1}'.format(new_filename2, filesize))
+
+            recvd_size = 0  # the size of the file has been received
+            fp = open(new_filename2, 'wb')
+            print("start receiving...")
+            while not recvd_size == filesize:
+                if filesize - recvd_size > 1024:
+                    data = conn.recv(1024)
+                    recvd_size += len(data)
+                else:
+                    data = conn.recv(filesize - recvd_size)
+                    recvd_size = filesize
+                fp.write(data)
+            fp.close()
+            print("end receive...")
+            break
+
+    # fp2 = open(nfn2, 'wb')
+    if(compare_faces(fp1, fp2)):
+        result = "same picture"
+    else:
+        result = "not same"
+    print(result)
+    conn.send(result)
+    conn.close()
 
 
 if __name__ == '__main__':
