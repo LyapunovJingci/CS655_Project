@@ -1,8 +1,6 @@
 # -*- coding=utf-8 -*-
-import cv2
 import socket
 import threading
-import time
 import sys
 import os
 import struct
