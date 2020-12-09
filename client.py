@@ -48,7 +48,7 @@ def socket_client():
 
         firstFileTime = time.time()
         # send second picture
-        filepath = os.path.join(os.getcwd() + '/image/obama.jpg')
+        filepath = os.path.join(os.getcwd() + '/image/obama2.jpg')
         if os.path.isfile(filepath2):
             fileinfo_size2 = struct.calcsize('128sq')
             size2 = os.path.getsize(filepath2)
