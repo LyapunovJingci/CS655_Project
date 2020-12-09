@@ -46,8 +46,8 @@ def deal_data(conn, addr):
         if buf:
             filename1, filesize = struct.unpack('128sl', buf)
             fn1 = filename1.strip(str.encode('\00'))
-            new_filename1 = os.path.join(str.encode('./'), str.encode('new_') + fn1)
-            fp1 = str.encode('new_') + fn1
+            new_filename1 = os.path.join(str.encode('./receive/'), str.encode('new_') + fn1)
+            fp1 = str.encode('./receive/new_') + fn1
             print('file new name is {0}, filesize if {1}'.format(new_filename1, filesize))
 
             recvd_size = 0  # the size of the file has been received
@@ -71,8 +71,8 @@ def deal_data(conn, addr):
         if buf:
             filename2, filesize = struct.unpack('128sl', buf)
             fn2 = filename2.strip(str.encode('\00'))
-            new_filename2 = os.path.join(str.encode('./'), str.encode('new_') + fn2)
-            fp2 = str.encode('new_') + fn2
+            new_filename2 = os.path.join(str.encode('./receive/'), str.encode('new_') + fn2)
+            fp2 = str.encode('./receive/new_') + fn2
             print('file new name is {0}, filesize if {1}'.format(new_filename2, filesize))
 
             recvd_size = 0  # the size of the file has been received
@@ -91,12 +91,14 @@ def deal_data(conn, addr):
             break
 
     # fp2 = open(nfn2, 'wb')
+    # print(fp1)
     if(compare_faces(fp1, fp2)):
         result = "same picture"
     else:
         result = "not same"
     print(result)
-    conn.send(result)
+    msg = result.encode("utf-8")
+    conn.send(msg)
     conn.close()
 
 

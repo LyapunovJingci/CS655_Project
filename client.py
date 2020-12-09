@@ -16,7 +16,7 @@ def socket_client():
 
     while 1:
         # send first picture
-        filepath = os.path.join(os.path.dirname(__file__) + '/image/anime.jpg')
+        filepath = os.path.join(os.path.dirname(__file__) + '/image/obama.jpg')
         if os.path.isfile(filepath):
             fileinfo_size = struct.calcsize('128sl')
             fhead = struct.pack('128sl', bytes(os.path.basename(filepath).encode('utf-8')), os.stat(filepath).st_size)
@@ -30,7 +30,7 @@ def socket_client():
                     break
                 s.send(data)
         # send second picture
-        filepath = os.path.join(os.path.dirname(__file__) + '/image/anime2.jpg')
+        filepath = os.path.join(os.path.dirname(__file__) + '/image/obama2.jpg')
         if os.path.isfile(filepath):
             fileinfo_size = struct.calcsize('128sl')
             fhead = struct.pack('128sl', bytes(os.path.basename(filepath).encode('utf-8')), os.stat(filepath).st_size)
@@ -45,8 +45,8 @@ def socket_client():
                 s.send(data)
 
         # get result
-        result = struct.calcsize('128sl')
-        s.recv(result)
+        msg = s.recv(fileinfo_size)
+        result = msg.decode("utf-8")
         print(result)
         s.close()
         break
