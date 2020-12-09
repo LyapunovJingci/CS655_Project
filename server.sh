@@ -5,12 +5,15 @@ sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install python3.7
 sudo apt install python3-pip
+sudo python3.7 -m pip install --upgrade --force pip
+sudo python3.7 -m pip install setuptools==33.1.1
 sudo python3.7 -m pip install pip
-sudo python3.7 -m pip install setuptools wheel
-sudo python3.7 -m pip install opencv-python==4.4.0.46
 sudo python3.7 -m pip install numpy==1.19.4
 sudo python3.7 -m pip install cmake
-sudo python3.7 -m pip install dlib
+sudo python3.7 -m pip install boost
+sudo apt-get install libgtk-3-dev
+sudo apt-get install libboost-all-dev
+sudo python3.7 -m pip install dlib -vvv
 sudo python3.7 -m pip install face_recognition
 sudo mkdir -p /users/geni
 cd /users/geni
