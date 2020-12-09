@@ -1,6 +1,4 @@
 # -*- coding=utf-8 -*-
-print ('Content-Type: text/html')
-print ('')
 import socket
 import os
 import sys
@@ -8,44 +6,6 @@ import struct
 import time
 import cgi
 import cgitb;
-from flask import Flask
-Result = 0
-app = Flask(__name__)
-@app.route('/')
-def hello_world():
-
-    if(Result == 0):
-        return ("""\
-                <html>
-                <head>
-                <meta charset="utf-8">
-                <title>CS655 geni project</title>
-                </head>
-                <body>
-                <h1>same people</h1>
-                <a href="/index.html">
-                    <button>try again!</button>
-                </a>
-                </body>
-                </html>
-                """)
-    else:
-        return ("""\
-                <html>
-                <head>
-                <meta charset="utf-8">
-                <title>CS655 geni project</title>
-                </head>
-                <body>
-                <h1>not same people</h1>
-                <a href="/index.html">
-                    <button>try again!</button>
-                </a>
-                </body>
-                </html>
-                """)
-
-
 def size_format(size):
     if size < 1000:
         return '%i' % size + 'size'
@@ -61,7 +21,7 @@ def size_format(size):
 def socket_client():
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect(('LAPTOP-F9MB7D33',1218))
+        s.connect(('server.geni.ch-geni-net.genirack.nyu.edu',1218))
     except socket.error as msg:
         print(msg)
         sys.exit(1)
@@ -107,9 +67,35 @@ def socket_client():
         result = msg.decode("utf-8")
         print(result)
         if(result == "same people!"):
-            Result = 1
+            print("""\
+                <html>
+                <head>
+                <meta charset="utf-8">
+                <title>CS655 geni project</title>
+                </head>
+                <body>
+                <h1>Same people</h1>
+                <a href="/index.html">
+                    <button>try again!</button>
+                </a>
+                </body>
+                </html>
+                """)
         else:
-            Result = 0
+            print("""\
+                <html>
+                <head>
+                <meta charset="utf-8">
+                <title>CS655 geni project</title>
+                </head>
+                <body>
+                <h1>not same people</h1>
+                <a href="/index.html">
+                    <button>try again!</button>
+                </a>
+                </body>
+                </html>
+                """)
         print('first picture takes:',firstFileTime-linkStart)
         print('second picture takes:', secondFileTime - firstFileTime)
         print('total takes:', secondFileTime - linkStart)
@@ -118,4 +104,3 @@ def socket_client():
 
 if __name__ == '__main__':
     socket_client()
-    app.run()
