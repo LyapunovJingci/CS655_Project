@@ -97,7 +97,7 @@ def deal_data(conn, addr):
     # fp2 = open(nfn2, 'wb')
     # print(fp1)
     if(compare_faces(fp1, fp2)):
-        result = "same picture"
+        result = "same people!"
     else:
         result = "not same"
     print(result)
