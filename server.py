@@ -43,19 +43,28 @@ def socket_service():
 def deal_data(conn, addr):
     print ('Accept new connection from {0}'.format(addr))
     while 1:
-        fileinfo_size = struct.calcsize('128sq')
+        print(1)
+        fileinfo_size = struct.calcsize('128sl')
+        print(2)
         buf = conn.recv(fileinfo_size)
+        print(3)
         if buf:
-            filename1, filesize = struct.unpack('128sq', buf)
+            print(4)
+            filename1, filesize = struct.unpack('128sl', buf)
+            print(5)
             fn1 = filename1.strip(str.encode('\00'))
+            print(6)
             new_filename1 = os.path.join(str.encode('./receive/'), str.encode('new_') + fn1)
+            print(7)
             fp1 = str.encode('./receive/new_') + fn1
+            print(8)
             print('file new name is {0}, filesize if {1}'.format(new_filename1, filesize))
 
             recvd_size = 0  # the size of the file has been received
             fp = open(new_filename1, 'wb')
             print("start receiving...")
             while not recvd_size == filesize:
+                print(recvd_size)
                 if filesize - recvd_size > 1024:
                     data = conn.recv(1024)
                     recvd_size += len(data)
@@ -68,13 +77,21 @@ def deal_data(conn, addr):
             break
 
     while 1:
-        fileinfo_size = struct.calcsize('128sq')
+        print(9)
+        fileinfo_size = struct.calcsize('128sl')
+        print(10)
         buf = conn.recv(fileinfo_size)
+        print(11)
         if buf:
-            filename2, filesize = struct.unpack('128sq', buf)
+            print(12)
+            filename2, filesize = struct.unpack('128sl', buf)
+            print(13)
             fn2 = filename2.strip(str.encode('\00'))
+            print(14)
             new_filename2 = os.path.join(str.encode('./receive/'), str.encode('new_') + fn2)
+            print(15)
             fp2 = str.encode('./receive/new_') + fn2
+            print(16)
             print('file new name is {0}, filesize if {1}'.format(new_filename2, filesize))
 
             recvd_size = 0  # the size of the file has been received
