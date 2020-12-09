@@ -34,8 +34,8 @@ def socket_client():
         if os.path.isfile(filepath):
             size1 = os.path.getsize(filepath)
             print(size_format(size1))
-            fileinfo_size = struct.calcsize('128sl')
-            fhead = struct.pack('128sl', bytes(os.path.basename(filepath).encode('utf-8')), os.stat(filepath).st_size)
+            fileinfo_size = struct.calcsize('128sq')
+            fhead = struct.pack('128sq', bytes(os.path.basename(filepath).encode('utf-8')), os.stat(filepath).st_size)
             s.send(fhead)
             #print('client filepath: {0}'.format(filepath))
             fp = open(filepath, 'rb')
@@ -50,10 +50,10 @@ def socket_client():
         # send second picture
         filepath2 = os.path.join(os.path.dirname(__file__) + '/image/obama2.jpg')
         if os.path.isfile(filepath2):
-            fileinfo_size2 = struct.calcsize('128sl')
+            fileinfo_size2 = struct.calcsize('128sq')
             size2 = os.path.getsize(filepath2)
             print(size_format(size2))
-            fhead = struct.pack('128sl', bytes(os.path.basename(filepath2).encode('utf-8')), os.stat(filepath2).st_size)
+            fhead = struct.pack('128sq', bytes(os.path.basename(filepath2).encode('utf-8')), os.stat(filepath2).st_size)
             s.send(fhead)
             #print('client filepath: {0}'.format(filepath))
             fp = open(filepath2, 'rb')
@@ -66,7 +66,7 @@ def socket_client():
 
         secondFileTime = time.time()
         # get result
-        fileinfo_size = struct.calcsize('128sl')
+        fileinfo_size = struct.calcsize('128sq')
         msg = s.recv(fileinfo_size)
         result = msg.decode("utf-8")
         print(result)
