@@ -20,3 +20,4 @@ cd /users/geni
 sudo git clone https://github.com/LyapunovJingci/CS655_Project.git
 cd CS655_Project
 python3.7 server.py
+

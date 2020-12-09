@@ -8,6 +8,8 @@ import struct
 import time
 import cgi
 import cgitb;
+cgitb.enable()
+form=cgi.FieldStorage()
 def size_format(size):
     if size < 1000:
         return '%i' % size + 'size'
