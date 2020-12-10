@@ -21,19 +21,19 @@ $ sudo kill
 
 We've built two nodes in GENI, one for server, one for client.    
 
-**Steps（server）:**   
+#### Steps（server ####  
 1. Use the command line in [server.sh](server.sh) to install python and packages.    
-2. Use **sudo git clone https://github.com/LyapunovJingci/CS655_Project.git** to clone the git code for this node (only the server.py is necessary for this node)    
-3. Use **cd CS655_Project** to enter the folder.    
-4. Use **python3 server.py** to run the server(need include sudo for the node)    
+2. Use ***sudo git clone https://github.com/LyapunovJingci/CS655_Project.git*** to clone the git code for this node (only the server.py is necessary for this node)    
+3. Use ***cd CS655_Project*** to enter the folder.    
+4. Use ***python3 server.py*** to run the server(need include sudo for the node)    
 If you meet any problem when you are installing dlib, please try [this](https://stackoverflow.com/questions/56051515/opencv-python-building-wheel-for-dlib-setup-py).                         
 If you use Python 3.6 to install everything, you should also install Python 3.6 for your client node(Although you can also use python 3.7 as well)    
 
-**Steps（client）:**    
+#### Steps（client）####   
 1. Use the command line in [client.sh](client.sh) to install python and packages.    
-2. Use **sudo git clone https://github.com/LyapunovJingci/CS655_Project.git** to clone the git code for this node (the client.py, clientInput.py is necessary for our test, and the folder of image stored some images you could use for the test)    
-3. Use **cd CS655_Project** to enter the folder.    
-4. Use **python3 clientInput.py** to run the server   
+2. Use ***sudo git clone https://github.com/LyapunovJingci/CS655_Project.git*** to clone the git code for this node (the client.py, clientInput.py is necessary for our test, and the folder of image stored some images you could use for the test)    
+3. Use ***cd CS655_Project*** to enter the folder.    
+4. Use ***python3 clientInput.py*** to run the server   
 
 ## Introduction ##
 The rapid development of image recognition in the past two decades has greatly transformed everyday life. With a tremendous boost of face recognition and verification demand, the server would face high load situations more and more frequently. In this project, we built a platform of face verification, and tested its accuracy as well as robustness of high demand. Our project allows a user to upload two images at one time, and the system would provide the information of whether these two belong to the same human. This project is a rudimentary demo, and it could be extended to real time face verification and be applied on different platforms. The main motivation of this project is to combine the computer network related knowledge that we have learned in this class with our own interest, at the same time, it allows us to explore new fields and technology stacks. 
