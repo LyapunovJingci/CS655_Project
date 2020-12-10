@@ -59,12 +59,19 @@ Step:
 build two nodes in GENI, one for server, one for client.    
 
 Step（server）:
-use the command line in server.sh to download, install and run the server    
+Use the command line in server.sh to install python and packages.    
+Use sudo git clone https://github.com/LyapunovJingci/CS655_Project.git to clone the git code for this node (only the server.py is necessary for this node)    
+Use cd CS655_Project to enter the folder.    
+Use python3 server.py to run the server(need include sudo for the node)    
 If you meet any problem when you are installing dlib, please try this:https://stackoverflow.com/questions/56051515/opencv-python-building-wheel-for-dlib-setup-py     
 If you use Python 3.6 to install everything, you should also install Python 3.6 for your client node(Although you can also use python 3.7 as well)    
 
 Step（client）:
-use the command line in client.sh to download, install and run the client    
+Use the command line in client.sh to install python and packages.    
+Use sudo git clone https://github.com/LyapunovJingci/CS655_Project.git to clone the git code for this node (the client.py, clientInput.py is necessary for our test, and the folder of image stored some images you could use for the test)    
+Use cd CS655_Project to enter the folder.    
+Use python3 clientInput.py to run the server   
+   
 
 
 
