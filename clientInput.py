@@ -34,7 +34,7 @@ def socket_client():
         print('Begin %d send!', count)
         print('Correct: %d', correct)
         # send first picture
-        filename = ("input filename:")
+        filename = input("input filename:")
         filepath = os.path.join(os.getcwd() + '/image/' +filename)
         #print(filepath)
         if os.path.isfile(filepath):
@@ -54,7 +54,7 @@ def socket_client():
 
         firstFileTime = time.time()
         # send second picture
-        filename = ("input filename:")
+        filename = input("input filename:")
         filepath2 = os.path.join(os.getcwd() + '/image/' + filename)
         if os.path.isfile(filepath2):
             fileinfo_size2 = struct.calcsize('128sq')
@@ -87,7 +87,7 @@ def socket_client():
         print('first picture takes:', firstFileTime - linkStart)
         print('second picture takes:', secondFileTime - firstFileTime)
         print('total takes:', secondFileTime - linkStart)
-
+        break
     s.close()
     print('sent:',count)
     print('correct:',correct)
