@@ -46,3 +46,10 @@ If you meet any problem when you are installing dlib, please try this:https://st
 
 Step（client）:
 use the command line in client.sh to download, install and run the server    
+
+
+
+
+## ✍️ Collaborators ##
+- Qingyang Long [@CaptainDra](https://github.com/CaptainDra)
+- Jingci Li [@LyapunovJingci](https://github.com/LyapunovJingci)
