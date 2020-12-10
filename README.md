@@ -2,13 +2,15 @@
 
 ## Demo & Reproduction ##
 
-[Demo]() of image verification
+[Demo](https://github.com/LyapunovJingci/CS655_Project/blob/main/demo/Client_input_demo.mp4) of image verification
 
-[Demo]() of high load tesing
+[Demo](https://github.com/LyapunovJingci/CS655_Project/blob/main/demo/Two_client_demo.mp4) of high load tesing
 
-[Scripts]() to setup experiment
+[Scripts](https://github.com/LyapunovJingci/CS655_Project/blob/main/server.sh) to setup server    
 
-[Rspec file]()
+[Scripts](https://github.com/LyapunovJingci/CS655_Project/blob/main/client.sh) to setup client    
+
+[Rspec file](https://github.com/LyapunovJingci/CS655_Project/blob/main/repec.xml)
 
 ### Reproduce Instruction ###
 
