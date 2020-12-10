@@ -24,14 +24,15 @@ In this project, we made a simple web application to compare the people in two p
 
 ## Reference ##
 
-The RESTful API was build on the basis of Face Recognition package
-https://github.com/ageitgey/face_recognition
+The RESTful API was build on the basis of [Face Recognition package](https://github.com/ageitgey/face_recognition)
 
-The image data used for testing in this project is from PubFig: Public Figures Face Database
-https://www.cs.columbia.edu/CAVE/databases/pubfig/
-The specific image path file is: https://www.cs.columbia.edu/CAVE/databases/pubfig/download/dev_urls.txt
+
+The image data used for testing in this project is from [PubFig: Public Figures Face Database](https://www.cs.columbia.edu/CAVE/databases/pubfig/)
+
+The specific image file path is [link](https://www.cs.columbia.edu/CAVE/databases/pubfig/download/dev_urls.txt)
 
 "Attribute and Simile Classifiers for Face Verification," Neeraj Kumar, Alexander C. Berg, Peter N. Belhumeur, and Shree K. Nayar, International Conference on Computer Vision (ICCV), 2009.
+
 
 ---
 
