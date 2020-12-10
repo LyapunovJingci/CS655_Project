@@ -5,7 +5,7 @@ import sys
 import os
 import struct
 import face_recognition as fr
-
+# fuction to comapre two picture
 def compare_faces(file1, file2):
 	image1 = fr.load_image_file(file1)
 	image2 = fr.load_image_file(file2)
@@ -38,6 +38,7 @@ def socket_service():
 
 def deal_data(conn, addr):
     print ('Accept new connection from {0}'.format(addr))
+    # receive the first picture
     while(1):
         while 1:
             fileinfo_size = struct.calcsize('128sq')
@@ -63,7 +64,7 @@ def deal_data(conn, addr):
                 fp.close()
                 print("end receive...")
                 break
-
+        # receive the second picture
         while 1:
             fileinfo_size = struct.calcsize('128sq')
             buf = conn.recv(fileinfo_size)
@@ -89,8 +90,7 @@ def deal_data(conn, addr):
                 print("end receive...")
                 break
 
-        # fp2 = open(nfn2, 'wb')
-        # print(fp1)
+        # compare two image from local storage
         if (compare_faces(fp1, fp2)):
             result = "same people!"
         else:

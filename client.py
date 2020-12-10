@@ -34,8 +34,8 @@ def socket_client():
         print('Begin %d send!', count)
         print('Correct: %d', correct)
         # send first picture
+        # auto test the obama.jpg and obama2.jpg in image folder
         filepath = os.path.join(os.getcwd() + '/image/obama.jpg')
-        #print(filepath)
         if os.path.isfile(filepath):
             size1 = os.path.getsize(filepath)
             print(size_format(size1))
@@ -61,7 +61,6 @@ def socket_client():
             fhead = struct.pack('128sq', bytes(os.path.basename(filepath2).encode('utf-8')),
                                     os.stat(filepath2).st_size)
             s.send(fhead)
-            # print('client filepath: {0}'.format(filepath))
             fp = open(filepath2, 'rb')
             while 1:
                 data = fp.read(1024)
