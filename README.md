@@ -1,4 +1,4 @@
-# CS655_Project    
+# CS655 Project #
 
 ## Introduction ##
 The rapid development of image recognition in the past two decades has greatly transformed everyday life. With a tremendous boost of face recognition and verification demand, the server would face high load situations more and more frequently. In this project, we built a platform of face verification, and tested its accuracy as well as robustness of high demand. Our project allows a user to upload two images at one time, and the system would provide the information of whether these two belong to the same human. This project is a rudimentary demo, and it could be extended to real time face verification and be applied on different platforms. The main motivation of this project is to combine the computer network related knowledge that we have learned in this class with our own interest, at the same time, it allows us to explore new fields and technology stacks. 
