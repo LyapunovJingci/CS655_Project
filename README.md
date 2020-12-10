@@ -12,8 +12,16 @@ On the client node, a user should upload two images here through the command lin
 
 On the server node, when the server receives a message from the client, it will use a for loop with a decode function to convert these utf-8 strings into jpg format images. After decoding, the server would call a RESTful API for image verification. The API based on Face Recognition package was created with Python and Flask and deployed on the server node. Subsequently, the server would transfer the boolean result from the API to a string. At last, the server would send the message string back to the client node and the user would get the result of the verification. The client-server architecture diagram is shown below.
 
+<img src="image/architecture.png" width="50%">
+
+We used default VM for the project, and moreover, the ubuntu version is 18.04. To use the face_recognation, please make sure you are using Python>=3.6 and install cmake and dlib in your pc or node.
+
+## Result ## 
+### Usage Instruction ###
 
 
+
+---
 
 some useful command for the project:    
 $ ps -fA | grep python    
