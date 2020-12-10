@@ -16,8 +16,10 @@ On the server node, when the server receives a message from the client, it will 
 
 We used default VM for the project, and moreover, the ubuntu version is 18.04. To use the face_recognation, please make sure you are using Python>=3.6 and install cmake and dlib in your pc or node.
 
-## Result ## 
-### Usage Instruction ###
+## Conclusion ##
+
+In this project, we made a simple web application to compare the people in two pictures, if the face_compare judge that those two are the same people,  we will return true, otherwise, the application will return false. After that we used a while loop to repeat the sending process for one hundred times. We found that everything on the network may have an influence on the web application. Although our web application could also work in a bad situation(with high loss rate, high delay, and many users use the service at the same time). The speed would also be influenced by the bad situation, and sometimes the server will crash under the situation.  If possible, we would keep developing this application after this semester to improve the performance of that application.
+
 
 
 ## Reference ##
