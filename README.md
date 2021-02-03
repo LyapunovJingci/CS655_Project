@@ -1,4 +1,4 @@
-# CS655 Project #
+# Image Recognition Application #
 
 ## Demo & Reproduction ##
 
